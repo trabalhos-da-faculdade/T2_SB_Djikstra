@@ -1,13 +1,20 @@
+// --------
+// IMPORTS
+// --------
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>        // Para usar strings
-#include <limits.h> // colocar limites nos ponteiros de inteiro
+#include <string.h> 
+#include <limits.h> 
 #include <math.h>
+
+// -----------------------
+// VERIFICACAO DO SISTEMA
+// ----------------------
 
 #ifdef WIN32
 #include <windows.h>    // Apenas para Windows
 #endif
-
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
@@ -18,22 +25,37 @@
 #include <GL/glut.h>   // Funções da FreeGLUT
 #endif
 
-// SOIL é a biblioteca para leitura das imagens
+
+// ---------------------------
+// CHAMADA DA BIBLIOTECA SOIL
+// ---------------------------
+
 #include "SOIL.h"
 
-// Chamando as funcoes e Structs do seam-carving 
+// --------------------------------
+// CHAMADA DA BIBLIOTECA DE FUNCOES
+// --------------------------------
+
 #include "functions-carving.c"
 
-// Protótipos
+// ----------
+// PROTOTIPOS
+// ----------
 
 void load(char* name, Img* pic);
 void uploadTexture();
 
-
+// -------------------------------------
 // Funções da interface gráfica e OpenGL
+// -------------------------------------
+
 void init();
 void draw();
 void keyboard(unsigned char key, int x, int y);
+
+// ------------------------
+// INICIACAO DAS VARIAVEIS 
+// -----------------------
 
 // Largura e altura da janela
 int width, height;
@@ -47,9 +69,11 @@ Img pic[3];
 // Imagem selecionada (0,1,2)
 int sel;
 
+// -------------------------------------
 // Carrega uma imagem para a struct Img
-void load(char* name, Img* pic)
-{
+// -------------------------------------
+
+void load(char* name, Img* pic){
     int chan;
     pic->img = (RGB*) SOIL_load_image(name, &pic->width, &pic->height, &chan, SOIL_LOAD_RGB);
     if(!pic->img)
@@ -59,6 +83,10 @@ void load(char* name, Img* pic)
     }
     printf("Load: %d x %d x %d\n", pic->width, pic->height, chan);
 }
+
+// --------------
+// MAIN INTERFACE
+// --------------
 
 int main(int argc, char** argv){
     if(argc < 2) {
@@ -131,8 +159,10 @@ int main(int argc, char** argv){
     glutMainLoop();
 }
 
+// -------------------------------
+// GERENCIA DE EVENTOS DO TECLADO
+// -------------------------------
 
-// Gerencia eventos de teclado
 void keyboard(unsigned char key, int x, int y){
     if(key==27) {
       // ESC: libera memória e finaliza
@@ -172,25 +202,22 @@ void keyboard(unsigned char key, int x, int y){
         printf("\n    Aplicando Algoritmo...\n\n");
         
 
-        // USANDO AS VARIAVEIS
+        // USANDO O ALGORITMO
         
             for(i; i < count ; i++){
                 verificaEnergia(matrixPixels,frstColumnList,qtdP,lastColumnList,qtdU);
                 int LinhaExcluir = identificaLinha(pixelsImportantes, &count);
 
                 if(count != 0){
-                    seamCarvingVermelho(matrixPixels, frstColumnList, qtdP , lastColumnList , qtdU , LinhaExcluir , pixelsImportantes , count);
+                    verificaVermelho(matrixPixels, frstColumnList, qtdP , lastColumnList , qtdU , LinhaExcluir , pixelsImportantes , count);
 
                 }else{
                     pintaVerde(i);
-                    seamCarvingNormal(matrixPixels, frstColumnList , qtdP , lastColumnList , qtdU , i);
+                    seamCarming(matrixPixels, frstColumnList , qtdP , lastColumnList , qtdU , i);
                 }
 
             }
             
-            
-
-
         // Constroi a imagem no pic[2]
         for(i; i<(pic[2].height*pic[2].width); i++){
             pic[2].img[i].r = pic[0].img[i].r;
@@ -205,9 +232,6 @@ void keyboard(unsigned char key, int x, int y){
             }
         }
 
-
-
-
         uploadTexture();
         printf("\n");
         printf("\n\n Finalizado!!! \n");
@@ -215,8 +239,10 @@ void keyboard(unsigned char key, int x, int y){
     glutPostRedisplay();
 }
 
-// Faz upload da imagem para a textura,
-// de forma a exibi-la na tela
+// ------------------------------
+// UPLOAD E EXIBICAO DAS IMAGENS
+// ------------------------------
+
 void uploadTexture(){
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, tex[2]);
@@ -226,9 +252,13 @@ void uploadTexture(){
     glDisable(GL_TEXTURE_2D);
 }
 
-// Callback de redesenho da tela
-void draw()
-{
+
+// -----------------------------
+// CALLBACK DE REDESENHO NA TELA
+// -----------------------------
+
+void draw(){
+
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);  // Preto
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 

@@ -28,3 +28,10 @@ make clean
 ```
 
 * Pode usar o Script `clear.sh` para fazer esse comando
+
+## Como foi feito neste trabalho
+
+1. Utilizei o Code:Blocks para compilar todas as partes, devido as novas headers e functions
+2. Criei um Header chamado `functions-carving.h` que possui os prototipos das funcoes do seam carming
+3. Criei um Arquivo C para colocar todas as Structs e Funcoes necessarios que criei para a Main
+4. Main continuar sendo o principal arquivo C do projeto
