@@ -721,7 +721,7 @@ void keyboard(unsigned char key, int x, int y){
         // Pinta de preto a parte retirada
         for(i; i<(pic[2].height*pic[2].width); i++){
             printf("PINTA DE PRETO");
-            if(pic[2].img[i].r == 0 && pic[2].img[i].g == 255 && pic[2].img[i].b == 0){
+            if(pic[2].img[i].r == 0 && pic[2].img[i].g == 0 && pic[2].img[i].b == 0){
                 pic[2].img[i].r = 0;
                 pic[2].img[i].g = 0;
                 pic[2].img[i].b = 0;
