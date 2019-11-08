@@ -33,6 +33,8 @@ typedef struct {
 // Protótipos
 void load(char* name, Img* pic);
 void uploadTexture();
+int calcEnergy (RGB* rgb1 , RGB* rgb2);
+int PixelEnergy (Img* pixels , int line);
 
 // Funções da interface gráfica e OpenGL
 void init();
@@ -63,6 +65,26 @@ void load(char* name, Img* pic)
     }
     printf("Load: %d x %d x %d\n", pic->width, pic->height, chan);
 }
+
+//Calculo de Energia
+int calculateEnergy(RGB* rgb1 , RGB* rgb2){
+    int red = rgb2->r - rgb1->r;
+    red *= red;
+
+    int green = rgb2->g - rgb1->g;
+    green *= green;
+
+    int blue = rgb2->b - rgb1->b;
+    blue *= blue;
+
+    return red + green + blue;
+}
+
+//Verificacao de Energia
+int PixelEnergy (Img* pixels , int line ){
+    //TODO define what is going here
+}
+
 
 int main(int argc, char** argv)
 {
