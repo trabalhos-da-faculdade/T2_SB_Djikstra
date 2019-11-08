@@ -6,7 +6,7 @@
 
 
 # Starting the Makefile
-make
+#make
 
 # Selection from the images
 echo ""
