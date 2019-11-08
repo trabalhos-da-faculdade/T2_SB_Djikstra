@@ -687,19 +687,18 @@ void keyboard(unsigned char key, int x, int y){
 
         printf("\n    Aplicando Algoritmo...\n\n");
         printf("\n Chegou Aqui");
-            printf("\n Entrou Aqui");
-            verificaEnergia(matrixPixels, frstColumnList, qtdP, lastColumnList, qtdU);
-            printf("Energia Verificada");
-            int linhaE = identificaLinha(pixelsImportantes, &count); // Identifica a linha com mais vermelhos
-            printf("|");
-            if(count != 0){
-                seamCarvingVermelho(matrixPixels, frstColumnList, qtdP, lastColumnList, qtdU, linhaE, pixelsImportantes, count);
-            }
-            else{
-                pintaVerde(i);
-
-                seamCarvingNormal(matrixPixels, frstColumnList, qtdP, lastColumnList, qtdU, i);
-            }
+        printf("\n Entrou Aqui");
+        verificaEnergia(matrixPixels, frstColumnList, qtdP, lastColumnList, qtdU);
+        printf("Energia Verificada");
+        int linhaE = identificaLinha(pixelsImportantes, &count); // Identifica a linha com mais vermelhos
+        printf("|");
+        if(count != 0){
+            seamCarvingVermelho(matrixPixels, frstColumnList, qtdP, lastColumnList, qtdU, linhaE, pixelsImportantes, count);
+        }
+        else{
+            pintaVerde(i);
+            seamCarvingNormal(matrixPixels, frstColumnList, qtdP, lastColumnList, qtdU, i);
+        }
 
 
         // Constroi a imagem no pic[2]
@@ -722,7 +721,6 @@ void keyboard(unsigned char key, int x, int y){
 
         uploadTexture();
         printf("\n");
-
         printf("\n\n Finalizado!!! \n");
     }
     glutPostRedisplay();
