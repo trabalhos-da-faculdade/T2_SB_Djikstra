@@ -96,7 +96,7 @@ void verificaEnergia(int matrixPixels[], int frstColumnList[], int qtdP, int las
         }
         else{
         // If da primeira linha pq varia o pixel de cima 
-        if(i >= comecoPrimeiraLinha & i < pic[0].width){
+        if((i >= comecoPrimeiraLinha) & (i < pic[0].width)){
             // Primeira linha primeiro pixel 
             if(i == 0){
             // pixel da esquerda menos o da direita
@@ -144,7 +144,7 @@ void verificaEnergia(int matrixPixels[], int frstColumnList[], int qtdP, int las
             }
 
         // If da ultima linha pq varia o pixel de baixo 
-        else if(i >= comecoUltimaLinha & i < (pic[0].width * pic[0].height)){
+        else if((i >= comecoUltimaLinha) & (i < (pic[0].width * pic[0].height))){
                 // Ultima linha primeiro pixel 
                 if(i == comecoUltimaLinha){
 
@@ -281,7 +281,7 @@ int pertenceUltimos(int pixel, int lastColumnList[], int tamanho){
 void calculaEnergia(int matrixPixels[], int pixel, int rx, int bx, int gx, int ry, int gy, int by){
 
     int energia;
-    int posicaoY;
+    // int posicaoY;
 
     energia = (pow(rx,2) + pow(gx,2) + pow(bx,2)) + (pow(ry,2) + pow(gy,2) + pow(by,2));
     matrixPixels[pixel] = energia;
@@ -421,7 +421,7 @@ void seamCarvingNormal(int matrixPixels[], int frstColumnList[], int tamanhoPrim
                             caminhoSeam[i][j]= auxiliar;
                         }
                         else{
-                            valorAcumulado = valorAcumulado = matrixPixels[auxiliar + proximaLinha+1];
+                            valorAcumulado = valorAcumulado + matrixPixels[auxiliar + proximaLinha+1];
                             auxiliar = auxiliar + proximaLinha +1;
                             caminhoSeam[i][j]= auxiliar;
                          }
