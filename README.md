@@ -16,6 +16,8 @@ make
 ./seamcarving bird.png birdmask.png
 ```
 
+* Pode usar o Script `compile.sh` que faz esses comandos
+
 ## Como zerar para outros testes
 
 * Para reiniciar os testes depois de modificacoes, precisa apagar os arquivos criados pelo Makefile
@@ -24,3 +26,5 @@ make
 # Erase all changes
 make clean
 ```
+
+* Pode usar o Script `clear.sh` para fazer esse comando
