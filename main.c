@@ -389,7 +389,7 @@ int identificaLinha(int pixelsImportantes[], int *count){
 
 // Identifica os caminhos posiveis de todos os pixels da primeira linha
 // No final cada caminho ira ter uma energiaAcumulada
-// Com a energiaAcumulado ele escolhe o caminho com menor varia��o de energia
+// Com a energiaAcumulado ele escolhe o caminho com menor variacao de energia
 void seamCarvingNormal(int matrixPixels[], int frstColumnList[], int tamanhoPrimeiros,
                              int lastColumnList[], int tamanhoUltimos, int larguraRetirada){
     int i, j, auxiliar;
@@ -664,7 +664,6 @@ void keyboard(unsigned char key, int x, int y){
         long g = 0;
         long i = 0;
 
-        //int tamanho = 60;
 
         int matrixPixels[pic[0].height * pic[0].width];
         int frstColumnList[pic[0].height - 2];
@@ -686,19 +685,25 @@ void keyboard(unsigned char key, int x, int y){
         int qtdU = sizeof(lastColumnList)/sizeof(int);
 
         printf("\n    Aplicando Algoritmo...\n\n");
-        printf("\n Chegou Aqui");
-        printf("\n Entrou Aqui");
-        verificaEnergia(matrixPixels, frstColumnList, qtdP, lastColumnList, qtdU);
-        printf("Energia Verificada");
-        int linhaE = identificaLinha(pixelsImportantes, &count); // Identifica a linha com mais vermelhos
-        printf("|");
-        if(count != 0){
-            seamCarvingVermelho(matrixPixels, frstColumnList, qtdP, lastColumnList, qtdU, linhaE, pixelsImportantes, count);
-        }
-        else{
-            pintaVerde(i);
-            seamCarvingNormal(matrixPixels, frstColumnList, qtdP, lastColumnList, qtdU, i);
-        }
+        
+
+        // USANDO AS VARIAVEIS
+        
+            for(i; i < count ; i++){
+                verificaEnergia(matrixPixels,frstColumnList,qtdP,lastColumnList,qtdU);
+                int LinhaExcluir = identificaLinha(pixelsImportantes, &count);
+
+                if(count != 0){
+                    seamCarvingVermelho(matrixPixels, frstColumnList, qtdP , lastColumnList , qtdU , LinhaExcluir , pixelsImportantes , count);
+
+                }else{
+                    pintaVerde(i);
+                    seamCarvingNormal(matrixPixels, frstColumnList , qtdP , lastColumnList , qtdU , i);
+                }
+
+            }
+            
+            
 
 
         // Constroi a imagem no pic[2]
@@ -707,8 +712,7 @@ void keyboard(unsigned char key, int x, int y){
             pic[2].img[i].g = pic[0].img[i].g;
             pic[2].img[i].b = pic[0].img[i].b;
 
-
-            // Coloca em Preto
+            // Coloca em Preto o que foi retirado
             if(pic[2].img[i].r == 0 && pic[2].img[i].g == 255 && pic[2].img[i].b == 0){
                 pic[2].img[i].r = 0;
                 pic[2].img[i].g = 0;
