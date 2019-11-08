@@ -533,9 +533,9 @@ void pintaVerde(int larguraReduzida){
     int i,j;
     for(j = (pic[0].width - larguraReduzida); j < pic[0].width*pic[0].height; j = j+pic[0].width){
         for(i = 0; i<larguraReduzida; i++){
-                        pic[0].img[j+i].r = 0;
-                        pic[0].img[j+i].g = 255;
-                        pic[0].img[j+i].b = 0;
+            pic[0].img[j+i].r = 0;
+            pic[0].img[j+i].g = 255;
+            pic[0].img[j+i].b = 0;
         }
     }
 }

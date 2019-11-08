@@ -204,19 +204,19 @@ void keyboard(unsigned char key, int x, int y){
 
         // USANDO O ALGORITMO
         
-            for(i; i < count ; i++){
-                verificaEnergia(matrixPixels,frstColumnList,qtdP,lastColumnList,qtdU);
-                int LinhaExcluir = identificaLinha(pixelsImportantes, &count);
+            
+                // verificaEnergia(matrixPixels,frstColumnList,qtdP,lastColumnList,qtdU);
+                // int LinhaExcluir = identificaLinha(pixelsImportantes, &count);
 
-                if(count != 0){
-                    verificaVermelho(matrixPixels, frstColumnList, qtdP , lastColumnList , qtdU , LinhaExcluir , pixelsImportantes , count);
+                // if(count != 0){
+                //     verificaVermelho(matrixPixels, frstColumnList, qtdP , lastColumnList , qtdU , LinhaExcluir , pixelsImportantes , count);
 
-                }else{
-                    pintaVerde(i);
-                    seamCarming(matrixPixels, frstColumnList , qtdP , lastColumnList , qtdU , i);
-                }
+                // }else{
+                //     //pintaVerde(i);
+                //     seamCarming(matrixPixels, frstColumnList , qtdP , lastColumnList , qtdU , i);
+                // }
 
-            }
+                seamCarming(matrixPixels,frstColumnList,qtdP,lastColumnList,qtdU,i);
             
         // Constroi a imagem no pic[2]
         for(i; i<(pic[2].height*pic[2].width); i++){
