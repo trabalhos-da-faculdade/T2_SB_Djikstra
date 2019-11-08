@@ -6,6 +6,8 @@
 	<string.h>
 	<stdio.h>
 
+1426360528 
+
 1504289654 /home/10049190/git/progswb2/trab/t2-181-jdf6i4hygbhf/seamcarving/lib/SOIL/image_DXT.h
 
 1504289654 source:/home/10049190/git/progswb2/trab/t2-181-jdf6i4hygbhf/seamcarving/lib/SOIL/image_helper.c
@@ -47,6 +49,8 @@
 	"stbi_DDS_aug.h"
 	"stbi_DDS_aug_c.h"
 
+1504289654 aug_c.h"
+
 1504289654 /home/10049190/git/progswb2/trab/t2-181-jdf6i4hygbhf/seamcarving/lib/SOIL/stbi_DDS_aug.h
 
 1504289654 /home/10049190/git/progswb2/trab/t2-181-jdf6i4hygbhf/seamcarving/lib/SOIL/stbi_DDS_aug_c.h
@@ -67,9 +71,13 @@
 1504289654 /home/10049190/git/progswb2/trab/t2-181-jdf6i4hygbhf/seamcarving/include/GL/glut.h
 	"freeglut.h"
 
+1504289654 h"
+
 1504289654 /home/10049190/git/progswb2/trab/t2-181-jdf6i4hygbhf/seamcarving/include/GL/freeglut.h
 	"freeglut_std.h"
 	"freeglut_ext.h"
+
+1504289654 ext.h"
 
 1504289654 /home/10049190/git/progswb2/trab/t2-181-jdf6i4hygbhf/seamcarving/include/GL/freeglut_std.h
 	<windows.h>
@@ -229,6 +237,8 @@
 1426360528 c:\documents and settings\10049190\desktop\seamcarving\include\gl\glut.h
 	"freeglut_std.h"
 
+1426360528 std.h"
+
 1426360528 c:\documents and settings\10049190\desktop\seamcarving\include\gl\freeglut_std.h
 	<windows.h>
 	<EGL/egl.h>
@@ -241,4 +251,90 @@
 	<stdlib.h>
 
 1504289654 c:\documents and settings\10049190\desktop\seamcarving\soil.h
+
+1573227653 source:/home/ages/Desktop/Repositorios/T2_SB_Djikstra/lib/SOIL/image_DXT.c
+	"image_DXT.h"
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+
+1573227653 /home/ages/Desktop/Repositorios/T2_SB_Djikstra/lib/SOIL/image_DXT.h
+
+1573227653 source:/home/ages/Desktop/Repositorios/T2_SB_Djikstra/lib/SOIL/image_helper.c
+	"image_helper.h"
+	<stdlib.h>
+	<math.h>
+
+1573227653 /home/ages/Desktop/Repositorios/T2_SB_Djikstra/lib/SOIL/image_helper.h
+
+1573227653 source:/home/ages/Desktop/Repositorios/T2_SB_Djikstra/lib/SOIL/SOIL.c
+	<windows.h>
+	<wingdi.h>
+	<GL/gl.h>
+	<OpenGL/gl.h>
+	<Carbon/Carbon.h>
+	<GL/gl.h>
+	<GL/glx.h>
+	"SOIL.h"
+	"stb_image_aug.h"
+	"image_helper.h"
+	"image_DXT.h"
+	<stdlib.h>
+	<string.h>
+
+1573227653 /home/ages/Desktop/Repositorios/T2_SB_Djikstra/lib/SOIL/SOIL.h
+
+1573227653 /home/ages/Desktop/Repositorios/T2_SB_Djikstra/lib/SOIL/stb_image_aug.h
+	<stdio.h>
+
+1573227653 source:/home/ages/Desktop/Repositorios/T2_SB_Djikstra/lib/SOIL/stb_image_aug.c
+	"stb_image_aug.h"
+	<math.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	<assert.h>
+	<stdarg.h>
+	"stbi_DDS_aug.h"
+	"stbi_DDS_aug_c.h"
+
+1573227653 /home/ages/Desktop/Repositorios/T2_SB_Djikstra/lib/SOIL/stbi_DDS_aug.h
+
+1573227653 /home/ages/Desktop/Repositorios/T2_SB_Djikstra/lib/SOIL/stbi_DDS_aug_c.h
+
+1573229211 source:/home/ages/Desktop/Repositorios/T2_SB_Djikstra/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GLUT/glut.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<GL/glut.h>
+	"SOIL.h"
+	"functions-carving.h"
+
+1573227653 /home/ages/Desktop/Repositorios/T2_SB_Djikstra/include/GL/glut.h
+	"freeglut_std.h"
+
+1573227653 /home/ages/Desktop/Repositorios/T2_SB_Djikstra/include/GL/freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1573227653 /home/ages/Desktop/Repositorios/T2_SB_Djikstra/SOIL.h
+
+1573227653 /home/ages/Desktop/Repositorios/T2_SB_Djikstra/functions-carving.h
 

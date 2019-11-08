@@ -664,6 +664,8 @@ void keyboard(unsigned char key, int x, int y){
         long g = 0;
         long i = 0;
 
+        //int tamanho = 60;
+
         int matrixPixels[pic[0].height * pic[0].width];
         int frstColumnList[pic[0].height - 2];
         int lastColumnList[pic[0].height - 2];
@@ -705,13 +707,17 @@ void keyboard(unsigned char key, int x, int y){
             pic[2].img[i].g = pic[0].img[i].g;
             pic[2].img[i].b = pic[0].img[i].b;
 
-            // deixar preto a parte que saiu da imagem
+
+            // Coloca em Preto
             if(pic[2].img[i].r == 0 && pic[2].img[i].g == 255 && pic[2].img[i].b == 0){
                 pic[2].img[i].r = 0;
                 pic[2].img[i].g = 0;
                 pic[2].img[i].b = 0;
             }
         }
+
+
+
 
         uploadTexture();
         printf("\n");
