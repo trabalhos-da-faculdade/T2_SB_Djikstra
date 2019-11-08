@@ -95,9 +95,9 @@ void verificaEnergia(int matrixPixels[], int frstColumnList[], int qtdP, int las
             calculaEnergia(matrixPixels, i, 255, 0, 255, 0, 255, 0);
         }
         else{
-        // If da primeira linha pq varia o pixel de cima 
+        // If da primeira linha pq varia o pixel de cima
         if((i >= comecoPrimeiraLinha) & (i < pic[0].width)){
-            // Primeira linha primeiro pixel 
+            // Primeira linha primeiro pixel
             if(i == 0){
             // pixel da esquerda menos o da direita
             rx = pic[0].img[pic[0].width-1].r - pic[0].img[i+1].r;
@@ -112,7 +112,7 @@ void verificaEnergia(int matrixPixels[], int frstColumnList[], int qtdP, int las
             calculaEnergia(matrixPixels, i, rx, gx, bx, ry, gy, by);
             }
 
-            // Primeira Linha ultimo pixel 
+            // Primeira Linha ultimo pixel
             else if(i == (pic[0].width-1)){
 
                 // pixel da esquerda menos direita
@@ -143,9 +143,9 @@ void verificaEnergia(int matrixPixels[], int frstColumnList[], int qtdP, int las
                 }
             }
 
-        // If da ultima linha pq varia o pixel de baixo 
+        // If da ultima linha pq varia o pixel de baixo
         else if((i >= comecoUltimaLinha) & (i < (pic[0].width * pic[0].height))){
-                // Ultima linha primeiro pixel 
+                // Ultima linha primeiro pixel
                 if(i == comecoUltimaLinha){
 
                     // pixel da esquerda menos direita
@@ -160,7 +160,7 @@ void verificaEnergia(int matrixPixels[], int frstColumnList[], int qtdP, int las
 
                     calculaEnergia(matrixPixels, i, rx, gx, bx, ry, gy, by);
                 }
-                // Ultima linha ultimo pixel 
+                // Ultima linha ultimo pixel
                 else if(i == (pic[0].width * pic[0].height -1)){
 
                     // pixel da esquerda menos da direita
@@ -175,7 +175,7 @@ void verificaEnergia(int matrixPixels[], int frstColumnList[], int qtdP, int las
 
                     calculaEnergia(matrixPixels, i, rx, gx, bx, ry, gy, by);
                 }
-                // Pixels do meio ultima linha 
+                // Pixels do meio ultima linha
                 else{
                     // pixel da esquerda menos o da direita
                     rx = pic[0].img[i-1].r - pic[0].img[i+1].r;
@@ -190,9 +190,9 @@ void verificaEnergia(int matrixPixels[], int frstColumnList[], int qtdP, int las
                     calculaEnergia(matrixPixels, i, rx, gx, bx, ry, gy, by);
                 }
         }
-        // Pixels da ultima coluna (BORDA ESQUERDA) 
+        // Pixels da ultima coluna (BORDA ESQUERDA)
         else if(pertencePrimeiros(i, frstColumnList, qtdP) == 1){
-            // If por causa do pixel abaixo do pixel 0 - pegar acima 
+            // If por causa do pixel abaixo do pixel 0 - pegar acima
             if(i == pic[0].width){
 
                 // pixel da esquerda menos o da direita
@@ -236,7 +236,7 @@ void verificaEnergia(int matrixPixels[], int frstColumnList[], int qtdP, int las
 
             calculaEnergia(matrixPixels, i, rx, gx, bx, ry, gy, by);
         }
-        // Pixels do meio da imagem 
+        // Pixels do meio da imagem
         else{
             // pixel da esquerda menos o da direita
             rx = pic[0].img[i+1].r - pic[0].img[i-1].r;
@@ -660,9 +660,11 @@ void keyboard(unsigned char key, int x, int y){
         // 1-3: seleciona a imagem correspondente (origem, máscara e resultado)
         sel = key - '1';
     if(key == 's') {
-        
+
         long g = 0;
         long i = 0;
+
+        //int tamanho = 60;
 
         int matrixPixels[pic[0].height * pic[0].width];
         int frstColumnList[pic[0].height - 2];
@@ -685,31 +687,29 @@ void keyboard(unsigned char key, int x, int y){
 
         printf("\n    Aplicando Algoritmo...\n\n");
         printf("\n Chegou Aqui");
-        printf("\n Entrou Aqui");
-        verificaEnergia(matrixPixels, frstColumnList, qtdP, lastColumnList, qtdU);
-        printf("Energia Verificada");
-        int linhaE = identificaLinha(pixelsImportantes, &count); // Identifica a linha com mais vermelhos
-        printf("|");
-        if(count != 0){
-            seamCarvingVermelho(matrixPixels, frstColumnList, qtdP, lastColumnList, qtdU, linhaE, pixelsImportantes, count);
-        }
-        else{
-            pintaVerde(i);
-            seamCarvingNormal(matrixPixels, frstColumnList, qtdP, lastColumnList, qtdU, i);
-        }
-        
+            printf("\n Entrou Aqui");
+            verificaEnergia(matrixPixels, frstColumnList, qtdP, lastColumnList, qtdU);
+            printf("Energia Verificada");
+            int linhaE = identificaLinha(pixelsImportantes, &count); // Identifica a linha com mais vermelhos
+            printf("|");
+            if(count != 0){
+                seamCarvingVermelho(matrixPixels, frstColumnList, qtdP, lastColumnList, qtdU, linhaE, pixelsImportantes, count);
+            }
+            else{
+                pintaVerde(i);
+
+                seamCarvingNormal(matrixPixels, frstColumnList, qtdP, lastColumnList, qtdU, i);
+            }
+
 
         // Constroi a imagem no pic[2]
         for(i; i<(pic[2].height*pic[2].width); i++){
             pic[2].img[i].r = pic[0].img[i].r;
             pic[2].img[i].g = pic[0].img[i].g;
             pic[2].img[i].b = pic[0].img[i].b;
-        }
 
 
-        // Pinta de preto a parte retirada
-        for(i; i<(pic[2].height*pic[2].width); i++){
-            printf("PINTA DE PRETO");
+            // Coloca em Preto
             if(pic[2].img[i].r == 0 && pic[2].img[i].g == 255 && pic[2].img[i].b == 0){
                 pic[2].img[i].r = 0;
                 pic[2].img[i].g = 0;
@@ -717,9 +717,12 @@ void keyboard(unsigned char key, int x, int y){
             }
         }
 
+
+
+
         uploadTexture();
         printf("\n");
-        
+
         printf("\n\n Finalizado!!! \n");
     }
     glutPostRedisplay();
